@@ -71,6 +71,11 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- NOTE: MY KEYMAPS
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-b>", "") -- Remap to nothing the ctrl-b
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -681,17 +686,50 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is.
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
 
-			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
-		end,
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    init = function()
+            require('kanagawa').setup({
+          compile = false,             -- enable compiling the colorscheme
+          undercurl = true,            -- enable undercurls
+          commentStyle = { italic = true },
+          functionStyle = {},
+          keywordStyle = { italic = true},
+          statementStyle = { bold = true },
+          typeStyle = {},
+          transparent = true,         -- do not set background color
+          dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+          terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+          colors = {                   -- add/modify theme and palette colors
+              palette = {},
+              theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = {bg_gutter = "none"} } },
+          },
+          overrides = function(colors) -- add/modify highlights
+              return {}
+          end,
+          theme = "wave",              -- Load "wave" theme when 'background' option is not set
+          background = {               -- map the value of 'background' option to a theme
+              dark = "wave",           -- try "dragon" !
+              light = "lotus"
+          },
+      })
+
+      -- setup must be called before loading
+      vim.cmd("colorscheme kanagawa")
+    end,
+
+		--"folke/tokyonight.nvim",
+		--priority = 1000, -- Make sure to load this before all the other start plugins.
+		--init = function()
+		--	-- Load the colorscheme here.
+		--	-- Like many other themes, this one has different styles, and you could load
+		--	-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+		--	vim.cmd.colorscheme("tokyonight-night")
+
+		--	-- You can configure highlights by doing something like:
+		--	vim.cmd.hi("Comment gui=none")
+		--end,
 	},
 
 	-- Highlight todo, notes, etc in comments
@@ -784,7 +822,7 @@ require("lazy").setup({
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
-	--
+  --
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ import = "custom.plugins" },
