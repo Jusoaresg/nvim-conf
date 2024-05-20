@@ -61,6 +61,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
+vim.opt.guicursor = ""
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -71,10 +72,16 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- NOTE: MY KEYMAPS
+-- NOTE: VIM Oil config (File explorer)
+vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir"} )
+vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir"} )
+
+-- NOTE: My general vim keymaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-b>", "") -- Remap to nothing the ctrl-b
+
+vim.keymap.set("i", "<M-BS>", "<C-w>")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -847,6 +854,9 @@ require("lazy").setup({
 		},
 	},
 })
+
+require("oil").setup()
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
