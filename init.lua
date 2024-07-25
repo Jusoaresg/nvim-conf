@@ -73,8 +73,8 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 
 -- NOTE: VIM Oil config (File explorer)
-vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir"} )
-vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir"} )
+vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" })
+vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" })
 
 -- NOTE: My general vim keymaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -694,37 +694,37 @@ require("lazy").setup({
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-    init = function()
-            require('kanagawa').setup({
-          compile = false,             -- enable compiling the colorscheme
-          undercurl = true,            -- enable undercurls
-          commentStyle = { italic = true },
-          functionStyle = {},
-          keywordStyle = { italic = true},
-          statementStyle = { bold = true },
-          typeStyle = {},
-          transparent = true,         -- do not set background color
-          dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
-          terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-          colors = {                   -- add/modify theme and palette colors
-              palette = {},
-              theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = {bg_gutter = "none"} } },
-          },
-          overrides = function(colors) -- add/modify highlights
-              return {}
-          end,
-          theme = "wave",              -- Load "wave" theme when 'background' option is not set
-          background = {               -- map the value of 'background' option to a theme
-              dark = "wave",           -- try "dragon" !
-              light = "lotus"
-          },
-      })
+		"rebelot/kanagawa.nvim",
+		priority = 1000,
+		init = function()
+			require("kanagawa").setup({
+				compile = false, -- enable compiling the colorscheme
+				undercurl = true, -- enable undercurls
+				commentStyle = { italic = true },
+				functionStyle = {},
+				keywordStyle = { italic = true },
+				statementStyle = { bold = true },
+				typeStyle = {},
+				transparent = true, -- do not set background color
+				dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+				terminalColors = true, -- define vim.g.terminal_color_{0,17}
+				colors = { -- add/modify theme and palette colors
+					palette = {},
+					theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = { bg_gutter = "none" } } },
+				},
+				overrides = function(colors) -- add/modify highlights
+					return {}
+				end,
+				theme = "wave", -- Load "wave" theme when 'background' option is not set
+				background = { -- map the value of 'background' option to a theme
+					dark = "wave", -- try "dragon" !
+					light = "lotus",
+				},
+			})
 
-      -- setup must be called before loading
-      vim.cmd("colorscheme kanagawa")
-    end,
+			-- setup must be called before loading
+			vim.cmd("colorscheme kanagawa")
+		end,
 
 		--"folke/tokyonight.nvim",
 		--priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -829,7 +829,7 @@ require("lazy").setup({
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
-  --
+	--
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ import = "custom.plugins" },
@@ -855,7 +855,11 @@ require("lazy").setup({
 	},
 })
 
+-- NOTE: File Manager OIL
 require("oil").setup()
+
+-- NOTE: Color hithlight in hex
+require("nvim-highlight-colors").setup({})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
