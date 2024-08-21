@@ -694,49 +694,61 @@ require("lazy").setup({
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
-		"rebelot/kanagawa.nvim",
-		priority = 1000,
+		-- Default options:
+		"rose-pine/neovim",
+		name = "rose-pine",
 		init = function()
-			require("kanagawa").setup({
-				compile = false, -- enable compiling the colorscheme
-				undercurl = true, -- enable undercurls
-				commentStyle = { italic = true },
-				functionStyle = {},
-				keywordStyle = { italic = true },
-				statementStyle = { bold = true },
-				typeStyle = {},
-				transparent = true, -- do not set background color
-				dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-				terminalColors = true, -- define vim.g.terminal_color_{0,17}
-				colors = { -- add/modify theme and palette colors
-					palette = {},
-					theme = { wave = {}, lotus = {}, dragon = {}, all = { ui = { bg_gutter = "none" } } },
+			require("rose-pine").setup({
+				variant = "auto", -- auto, main, moon, or dawn
+				dark_variant = "main", -- main, moon, or dawn
+				dim_inactive_windows = false,
+				extend_background_behind_borders = true,
+
+				enable = {
+					terminal = true,
+					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+					migrations = true, -- Handle deprecated options automatically
 				},
-				overrides = function(colors) -- add/modify highlights
-					return {}
-				end,
-				theme = "wave", -- Load "wave" theme when 'background' option is not set
-				background = { -- map the value of 'background' option to a theme
-					dark = "wave", -- try "dragon" !
-					light = "lotus",
+
+				styles = {
+					bold = true,
+					italic = true,
+					transparency = false,
+				},
+
+				groups = {
+					border = "muted",
+					link = "iris",
+					panel = "surface",
+
+					error = "love",
+					hint = "iris",
+					info = "foam",
+					note = "pine",
+					todo = "rose",
+					warn = "gold",
+
+					git_add = "foam",
+					git_change = "rose",
+					git_delete = "love",
+					git_dirty = "rose",
+					git_ignore = "muted",
+					git_merge = "iris",
+					git_rename = "pine",
+					git_stage = "iris",
+					git_text = "rose",
+					git_untracked = "subtle",
+
+					h1 = "iris",
+					h2 = "foam",
+					h3 = "rose",
+					h4 = "gold",
+					h5 = "pine",
+					h6 = "foam",
 				},
 			})
-
-			-- setup must be called before loading
-			vim.cmd("colorscheme kanagawa")
+			vim.cmd("colorscheme rose-pine")
 		end,
-
-		--"folke/tokyonight.nvim",
-		--priority = 1000, -- Make sure to load this before all the other start plugins.
-		--init = function()
-		--	-- Load the colorscheme here.
-		--	-- Like many other themes, this one has different styles, and you could load
-		--	-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-		--	vim.cmd.colorscheme("tokyonight-night")
-
-		--	-- You can configure highlights by doing something like:
-		--	vim.cmd.hi("Comment gui=none")
-		--end,
 	},
 
 	-- Highlight todo, notes, etc in comments
