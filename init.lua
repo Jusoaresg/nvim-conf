@@ -83,6 +83,9 @@ vim.keymap.set("n", "<C-b>", "") -- Remap to nothing the ctrl-b
 
 vim.keymap.set("i", "<M-BS>", "<C-w>")
 
+-- NOTE: GIT(Fugitive) Keys
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -211,13 +214,24 @@ require("lazy").setup({
 		config = function() -- This is the function that runs, AFTER loading
 			require("which-key").setup()
 
+			-- NOTE: Out of date which key
 			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+			-- require("which-key").register({
+			-- 	["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+			-- 	["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
+			-- 	["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+			-- 	["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+			-- 	["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+			-- })
+
+			-- NOTE: New LAZY 3 changed the way that which key work
+			require("which-key").add({
+				{ "<leader>c", group = "[C]ode" },
+				{ "<leader>d", group = "[D]ocument" },
+				{ "<leader>r", group = "[R]ename" },
+				{ "<leader>s", group = "[S]earch" },
+				{ "<leader>w", group = "[W]orkspace" },
+				{ "<leader>g", group = "[G]it" },
 			})
 		end,
 	},
