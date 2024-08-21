@@ -83,6 +83,10 @@ vim.keymap.set("n", "<C-b>", "") -- Remap to nothing the ctrl-b
 
 vim.keymap.set("i", "<M-BS>", "<C-w>")
 
+-- NOTE: Map to move lines up and down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- NOTE: GIT(Fugitive) Keys
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
 
