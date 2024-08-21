@@ -665,6 +665,9 @@ require("lazy").setup({
 			local luasnip = require("luasnip")
 			luasnip.config.setup({})
 
+			-- NOTE: MY SNIPPETS(snip_mate) ADDITION
+			require("luasnip.loaders.from_snipmate").lazy_load()
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
