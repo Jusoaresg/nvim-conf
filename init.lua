@@ -483,6 +483,35 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
+				--  PYTHON
+				pyright = {},
+
+				-- GOLANG
+				gopls = {},
+
+				-- C#
+				omnisharp = {},
+
+				-- HTML
+				html = {},
+				emmet_language_server = {},
+
+				-- CSS
+				--css_variables = {},
+				cssls = {},
+				cssmodules_ls = {},
+
+				-- ESLINT
+				eslint = {},
+
+				-- JSON - JQ
+				jsonls = {},
+				jq = {},
+
+				-- DOCKER
+				docker_compose_language_service = {},
+				dockerls = {},
+
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
