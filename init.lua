@@ -90,6 +90,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- NOTE: GIT(Fugitive) Keys
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
 
+-- NOTE: Terminal in neovim
+vim.keymap.set("n", "<leader>t", "<cmd>term<CR>i")
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
