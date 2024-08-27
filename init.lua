@@ -73,8 +73,8 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 
 -- NOTE: VIM Oil config (File explorer)
-vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" })
-vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" })
+-- vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" })
+-- vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" })
 
 -- NOTE: My general vim keymaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -926,9 +926,6 @@ require("lazy").setup({
 		},
 	},
 })
-
--- NOTE: File Manager OIL
-require("oil").setup()
 
 -- NOTE: Color hithlight in hex
 require("nvim-highlight-colors").setup({})
