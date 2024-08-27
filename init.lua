@@ -91,7 +91,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
 
 -- NOTE: Terminal in neovim
-vim.keymap.set("n", "<leader>t", "<cmd>term<CR>i")
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm direction=float <CR>")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -741,6 +741,13 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"sainnhe/gruvbox-material",
+		init = function()
+			vim.cmd("colorscheme gruvbox-material")
+		end,
+	},
+
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is.
@@ -800,7 +807,7 @@ require("lazy").setup({
 					h6 = "foam",
 				},
 			})
-			vim.cmd("colorscheme rose-pine")
+			-- vim.cmd("colorscheme rose-pine")
 		end,
 	},
 
@@ -925,6 +932,8 @@ require("oil").setup()
 
 -- NOTE: Color hithlight in hex
 require("nvim-highlight-colors").setup({})
+
+require("mini.pairs").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
