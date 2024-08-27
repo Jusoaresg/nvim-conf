@@ -927,9 +927,6 @@ require("lazy").setup({
 	},
 })
 
--- NOTE: Color hithlight in hex
-require("nvim-highlight-colors").setup({})
-
 require("mini.pairs").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
