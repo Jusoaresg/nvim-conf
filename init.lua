@@ -229,6 +229,7 @@ require("lazy").setup({
 				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>g", group = "[G]it" },
+				{ "<leader>x", group = "[X]ray" },
 			})
 		end,
 	},
