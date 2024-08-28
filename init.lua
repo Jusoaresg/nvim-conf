@@ -83,9 +83,6 @@ vim.keymap.set("i", "<M-BS>", "<C-w>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- NOTE: Terminal in neovim
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm direction=float <CR>")
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
