@@ -44,6 +44,22 @@ return {
 			-- NOTE: MY SNIPPETS(snip_mate) ADDITION
 			require("luasnip.loaders.from_snipmate").lazy_load()
 
+			local ls = require("luasnip")
+			local s = ls.snippet
+			local t = ls.text_node
+			local i = ls.insert_node
+
+			-- Snippets para arquivos .cs (C#)
+			ls.add_snippets("cs", {
+				s("prop", {
+					t("public "), -- Texto fixo "public "
+					i(1, "string"), -- Primeiro campo de edição: tipo da propriedade
+					t(" "), -- Espaço após o tipo
+					i(2, "PropertyName"), -- Segundo campo de edição: nome da propriedade
+					t(" { get; set; }"), -- Texto fixo: get e set
+				}),
+			})
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)

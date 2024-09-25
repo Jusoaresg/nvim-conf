@@ -6,8 +6,8 @@ vim.keymap.set("n", "<C-b>", "") -- Remap to nothing the ctrl-b
 vim.keymap.set("i", "<M-BS>", "<C-w>")
 
 -- NOTE: Map to move lines up and down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+--vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+--vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true

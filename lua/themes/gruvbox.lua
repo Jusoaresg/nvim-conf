@@ -2,7 +2,7 @@ return {
 	{
 		"sainnhe/gruvbox-material",
 		init = function()
-			vim.cmd("colorscheme gruvbox-material")
+			--vim.cmd("colorscheme gruvbox-material")
 		end,
 	},
 }
