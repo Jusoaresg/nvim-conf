@@ -58,7 +58,7 @@ return {
 					h6 = "foam",
 				},
 			})
-			vim.cmd("colorscheme rose-pine")
+			-- vim.cmd("colorscheme rose-pine")
 		end,
 	},
 }
