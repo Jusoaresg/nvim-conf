@@ -14,7 +14,6 @@ return {
 				-- Show files and directories that start with "."
 				show_hidden = true,
 			},
-
 			-- NOTE: VIM Oil config (File explorer)
 			vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" }),
 			vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" }),
