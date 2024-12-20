@@ -130,7 +130,7 @@ return {
 			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 			--
 
-			-- OLD CMP 
+			-- OLD CMP
 			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 			-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 

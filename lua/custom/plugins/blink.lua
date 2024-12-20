@@ -72,6 +72,7 @@ return {
 					},
 				},
 				preset = "enter",
+				["<C-y>"] = { "select_and_accept", "fallback" },
 				["<C-K>"] = { "select_prev", "fallback" },
 				["<C-J>"] = { "select_next", "fallback" },
 				["<Up>"] = { "select_prev", "fallback" },
