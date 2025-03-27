@@ -22,6 +22,11 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- INFO: My keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Exit to file tree" })
 
+-- Killing actual buffer
+vim.keymap.set("n", "<leader>bk", "<cmd>bd<CR>", { desc = "Kill current buffer" })
+
+vim.keymap.set("n", "<leader>ax", "<cmd>!chmod +x %<CR>", { desc = "Executable" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

@@ -4,8 +4,15 @@ return {
 	-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		-- calling `setup` is optional for customization
-		require("fzf-lua").setup({})
+		require("fzf-lua").setup({
+			keymap = {
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
+		})
 		local fzf = require("fzf-lua")
+
 		vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sk", fzf.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ss", fzf.builtin, { desc = "[S]earch [S]elect Telescope" })

@@ -24,6 +24,9 @@ return {
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>g", group = "[G]it" },
 				{ "<leader>x", group = "[X]ray" },
+				--My keys
+				{ "<leader>b", group = "[B]uffer" },
+				{ "<leader>a", group = "[A]rchive" },
 			})
 		end,
 	},
