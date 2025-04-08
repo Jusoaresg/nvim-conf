@@ -1,5 +1,4 @@
 return {
-
 	{
 		"saghen/blink.cmp",
 		dependencies = "rafamadriz/friendly-snippets",
@@ -10,17 +9,10 @@ return {
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
-		opts = {
-			-- 'default' for mappings similar to built-in completion
-			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-			-- see the "default configuration" section below for full documentation on how to define
-			-- your own keymap.
-			--
-
-			keymap = {
-				cmdline = {
-					preset = "super-tab",
+		opts = function(_, opts)
+			opts.cmdline = {
+				enabled = true,
+				keymap = {
 					["<C-K>"] = { "select_prev", "fallback" },
 					["<C-J>"] = { "select_next", "fallback" },
 					["<Up>"] = { "select_prev", "fallback" },
@@ -71,8 +63,12 @@ return {
 						end,
 					},
 				},
+			}
+
+			opts.keymap = {
 				preset = "enter",
 				["<C-y>"] = { "select_and_accept", "fallback" },
+				["<Tab>"] = { "select_and_accept", "fallback" },
 				["<C-K>"] = { "select_prev", "fallback" },
 				["<C-J>"] = { "select_next", "fallback" },
 				["<Up>"] = { "select_prev", "fallback" },
@@ -122,12 +118,20 @@ return {
 						cmp.accept({ index = 9 })
 					end,
 				},
-			},
+			}
 
-			completion = {
+			opts.completion = {
+				list = {
+					selection = { preselect = true, auto_insert = false },
+				},
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 1,
+				},
 				menu = {
 					draw = {
-						columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
+						-- columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
+						columns = { { "item_idx", "label", "label_description", gap = 1 }, { "kind" } },
 						components = {
 							item_idx = {
 								text = function(ctx)
@@ -136,21 +140,37 @@ return {
 								highlight = "BlinkCmpItemIdx", -- optional, only if you want to change its color
 							},
 						},
+						treesitter = { "lsp" },
 					},
 				},
-			},
+				-- ghost_text = {
+				-- 	enabled = true,
+				-- },
 
-			appearance = {
+				accept = {
+					auto_brackets = {
+						enabled = false,
+					},
+				},
+			}
+
+			opts.appearance = {
 				use_nvim_cmp_as_default = false,
 				nerd_font_variant = "mono",
-			},
+			}
 
-			sources = {
+			opts.sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
-			},
+			}
 
-			signature = { enabled = true },
-		},
+			opts.signature = {
+				enabled = true,
+				window = {
+					show_documentation = false,
+				},
+			}
+			return opts
+		end,
 		opts_extend = { "sources.default" },
 	},
 }

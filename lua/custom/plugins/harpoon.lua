@@ -3,14 +3,14 @@ return {
 		"ThePrimeagen/harpoon",
 		keys = {
 			{
-				"<leader>H",
+				"<leader>ff",
 				function()
 					require("harpoon.mark").add_file()
 				end,
 				desc = "Mark file harpoon",
 			},
 			{
-				"<leader>h",
+				"<leader>fs",
 				function()
 					require("harpoon.ui").toggle_quick_menu()
 				end,
@@ -43,6 +43,13 @@ return {
 					require("harpoon.ui").nav_file(4)
 				end,
 				desc = "Go to harpoon file 4",
+			},
+			{
+				"<leader>5",
+				function()
+					require("harpoon.ui").nav_file(5)
+				end,
+				desc = "Go to harpoon file 5",
 			},
 		},
 	},

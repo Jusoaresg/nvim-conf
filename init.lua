@@ -1,8 +1,7 @@
 require("configs")
 require("keymaps")
 
-require("myPlugins.tester")
-vim.keymap.set("n", "<leader>t", "<Cmd>Test<CR>", { desc = "[T]ester" })
+require("custom.comments")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -35,4 +34,7 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
+
+	change_detection = { enabled = false, notify = false },
+	spec = ...,
 })

@@ -1,6 +1,7 @@
 return {
 	"ellisonleao/gruvbox.nvim",
-	init = function()
+	lazy = true,
+	config = function()
 		require("gruvbox").setup({
 			terminal_colors = true,
 			undercurl = true,

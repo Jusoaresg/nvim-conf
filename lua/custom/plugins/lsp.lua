@@ -58,37 +58,9 @@ return {
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					local fzf = require("fzf-lua")
-
-					-- Jump to the definition of the word under your cursor.
-					--  This is where a variable was first declared, or where a function is defined, etc.
-					--  To jump back, press <C-t>.
-					--  NOTE: <C-o> jump back too
-					map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
-					--
-					-- -- Find references for the word under your cursor.
-					map("gr", fzf.lsp_references, "[G]oto [R]eferences")
-					--
-					-- -- Jump to the implementation of the word under your cursor.
-					-- --  Useful when your language has ways of declaring types without an actual implementation.
-					map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
-					--
-					-- -- Jump to the type of the word under your cursor.
-					-- --  Useful when you're not sure what type a variable is and you want to see
-					-- --  the definition of its *type*, not where it was *defined*.
-					map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
-					--
-					-- -- Fuzzy find all the symbols in your current document.
-					-- --  Symbols are things like variables, functions, types, etc.
-					map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
-					--
-					-- -- Fuzzy find all the symbols in your current workspace.
-					-- --  Similar to document symbols, except searches over your entire project.
-					map("<leader>ws", fzf.lsp_live_workspace_symbols, "[W]orkspace [S]ymbols")
-
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>cR", vim.lsp.buf.rename, "[C]ode [R]ename")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
@@ -100,7 +72,7 @@ return {
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					-- map("<leader>cD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -128,11 +100,10 @@ return {
 			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 			--
 
-			-- OLD CMP
-			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
-			-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			-- INFO: If for some reason want the builtin capabilities way
+			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -148,14 +119,52 @@ return {
 				pyright = {},
 
 				-- GOLANG
-				gopls = {},
+				gopls = {
+					filetypes = {
+						"go",
+						"templ",
+					},
+				},
+
+				templ = {
+					filetypes = {
+						"templ",
+					},
+				},
 
 				-- C#
 				omnisharp = {},
 
 				-- HTML
-				html = {},
-				emmet_language_server = {},
+				html = {
+					settings = {
+						html = {
+							format = {
+								templating = true,
+								wrapLineLength = "120",
+								wrapAttributes = "auto",
+							},
+						},
+					},
+				},
+				emmet_language_server = {
+					filetypes = {
+						"css",
+						"eruby",
+						"html",
+						"javascript",
+						"javascriptreact",
+						"less",
+						"sass",
+						"typescript",
+						"scss",
+						"svelte",
+						"pug",
+						"typescriptreact",
+						"vue",
+						"templ",
+					},
+				},
 
 				-- CSS
 				--css_variables = {},

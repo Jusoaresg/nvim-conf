@@ -1,6 +1,6 @@
 return {
 	"Lokaltog/vim-monotone",
-	init = function()
+	config = function()
 		vim.cmd("colorscheme monotone")
 	end,
 }

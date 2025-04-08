@@ -1,7 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "archibate/lualine-time" },
-	-- lualine-time = ctime / cdate
 	config = function()
 		require("lualine").setup({
 			options = {
@@ -27,7 +26,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
-				lualine_x = { "ctime", "encoding", "fileformat", "filetype" },
+				lualine_x = { "ctime", "cdate", "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},

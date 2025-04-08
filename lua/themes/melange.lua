@@ -1,6 +1,9 @@
 return {
 	{
 		"savq/melange-nvim",
-		init = function() end,
+		lazy = true,
+		config = function()
+			-- vim.cmd("colorscheme melange")
+		end,
 	},
 }

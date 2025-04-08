@@ -1,11 +1,11 @@
 return {
 	"seblj/roslyn.nvim",
-	ft = "cs",
+	ft = { "cs" },
 	opts = {
 		-- your configuration comes here; leave empty for default settings
 	},
 
-	init = function()
+	config = function()
 		require("roslyn").setup({})
 	end,
 }
