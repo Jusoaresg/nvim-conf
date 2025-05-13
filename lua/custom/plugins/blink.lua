@@ -143,10 +143,6 @@ return {
 						treesitter = { "lsp" },
 					},
 				},
-				-- ghost_text = {
-				-- 	enabled = true,
-				-- },
-
 				accept = {
 					auto_brackets = {
 						enabled = false,
