@@ -12,11 +12,14 @@ return {
 			{ "saghen/blink.cmp" },
 			{ "j-hui/fidget.nvim", opts = {} },
 
+			{ "nvim-java/nvim-java" },
+
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
 			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
+			require("lspconfig").jdtls.setup({})
 			-- Brief aside: **What is LSP?**
 			--
 			-- LSP is an initialism you've probably heard, but might not understand what it is.
