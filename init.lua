@@ -14,7 +14,7 @@ require("lazy").setup({
 
 	require("kickstart.plugins.debug"),
 
-	{ import = "custom.plugins" },
+	{ import = "plugins" },
 	{ import = "themes" },
 }, {
 	ui = {
