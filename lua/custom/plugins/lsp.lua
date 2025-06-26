@@ -105,6 +105,26 @@ return {
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+			require("lspconfig").gdscript.setup({})
+			require("lspconfig").nixd.setup({
+				cmd = { "nixd" },
+				settings = {
+					nixd = {
+						nixpkgs = {
+							expr = "import <nixpkgs> { }",
+						},
+						formatting = {
+							command = { "alejandra" },
+						},
+						options = {
+							nixos = {
+								expr = '(builtins.getFlake "/etc/nixos").nixosConfigurations.nixos.options',
+							},
+						},
+					},
+				},
+			})
+
 			-- INFO: If for some reason want the builtin capabilities way
 			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -215,6 +235,7 @@ return {
 								telemetry = { enable = false },
 								library = {
 									"${3rd}/love2d/library",
+									"~/.bin/sources/lsp/lua/cc-tweaked/",
 								},
 							},
 						},
