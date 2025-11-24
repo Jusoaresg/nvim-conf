@@ -156,7 +156,7 @@ return {
 				},
 
 				-- C#
-				omnisharp = {},
+				-- roslyn = {},
 
 				-- HTML
 				html = {
