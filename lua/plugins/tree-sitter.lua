@@ -6,11 +6,11 @@ return {
 				"nvim-treesitter/nvim-treesitter-context",
 				config = function()
 					require("treesitter-context").setup({
-						enable = true,            -- Habilita o plugin
-						max_lines = 5,            -- Máximo de linhas de contexto
-						trim_scope = "outer",     -- Ou "inner"
-						mode = "cursor",          -- Pode ser "topline" também
-						separator = "-",          -- Você pode definir um separador como "─"
+						enable = true, -- Habilita o plugin
+						max_lines = 5, -- Máximo de linhas de contexto
+						trim_scope = "outer", -- Ou "inner"
+						mode = "cursor", -- Pode ser "topline" também
+						separator = "-", -- Você pode definir um separador como "─"
 						zindex = 20,
 						on_attach = nil,
 					})
@@ -18,6 +18,7 @@ return {
 			},
 		},
 		build = ":TSUpdate",
+		branch = "master",
 		opts = {
 			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 			-- Autoinstall languages that are not installed
