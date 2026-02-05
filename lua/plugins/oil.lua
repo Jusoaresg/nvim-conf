@@ -24,7 +24,7 @@ return {
 			-- NOTE: VIM Oil config (File explorer)
 			vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" }),
 			vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" }),
-			vim.keymap.set("n", "<leader>o-", "<cmd>Oil<cr>", { desc = "[O]il File Manager" }),
+			vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "[O]il File Manager" }),
 		})
 	end,
 }
