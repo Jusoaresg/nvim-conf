@@ -19,7 +19,6 @@ return {
 			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
-			require("lspconfig").jdtls.setup({})
 			-- Brief aside: **What is LSP?**
 			--
 			-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -104,6 +103,7 @@ return {
 			--
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			vim.lsp.config("jdtls", {})
 
 			-- INFO: If for some reason want the builtin capabilities way
 			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
