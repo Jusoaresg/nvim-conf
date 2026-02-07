@@ -1,6 +1,21 @@
 return {
 	"ibhagwan/fzf-lua",
 	config = function()
+		local files_cmd = "rg --files --hidden "
+			.. "--glob '!.git/*' "
+			.. "--glob '!.vs/*' "
+			.. "--glob '!**/obj/*' "
+			.. "--glob '!**/*.dll'"
+
+		local project_root = vim.loop.cwd()
+
+		local csproj_exists = vim.fn.glob(project_root .. "/*.csproj") ~= ""
+		local slnx_exists = vim.fn.glob(project_root .. "/*.slnx") ~= ""
+
+		if csproj_exists or slnx_exists then
+			files_cmd = files_cmd .. " --glob '!**/bin/*'"
+		end
+
 		require("fzf-lua").setup({
 			keymap = {
 				fzf = {
@@ -9,12 +24,7 @@ return {
 			},
 
 			files = {
-				cmd = "rg --files --hidden "
-					.. "--glob '!.git/*' "
-					.. "--glob '!.vs/*' "
-					.. "--glob '!**/bin/*' "
-					.. "--glob '!**/obj/*' "
-					.. "--glob '!**/*.dll'",
+				cmd = files_cmd,
 			},
 			previewers = {
 				builtin = {
