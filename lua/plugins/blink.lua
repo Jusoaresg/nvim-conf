@@ -3,9 +3,7 @@ return {
 		"saghen/blink.cmp",
 		dependencies = "rafamadriz/friendly-snippets",
 
-		-- use a release tag to download pre-built binaries
 		version = "v0.*",
-		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -126,7 +124,7 @@ return {
 				},
 				documentation = {
 					auto_show = true,
-					auto_show_delay_ms = 1,
+					auto_show_delay_ms = 150,
 				},
 				menu = {
 					draw = {
@@ -149,6 +147,14 @@ return {
 					},
 				},
 			}
+			opts.fuzzy = {
+				sorts = {
+					"score", -- Primary sort: by fuzzy matching score
+					"sort_text", -- Secondary sort: by sortText field if scores are equal
+					"kind",
+					"label", -- Tertiary sort: by label if still tied
+				},
+			}
 
 			opts.appearance = {
 				use_nvim_cmp_as_default = false,
@@ -156,7 +162,7 @@ return {
 			}
 
 			opts.sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "snippets", "path", "buffer" },
 			}
 
 			opts.signature = {
