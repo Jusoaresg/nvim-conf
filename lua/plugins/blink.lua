@@ -1,7 +1,7 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = "rafamadriz/friendly-snippets",
+		dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 
 		version = "v0.*",
 
@@ -161,6 +161,10 @@ return {
 				nerd_font_variant = "mono",
 			}
 
+			opts.snippets = {
+				preset = "luasnip",
+			}
+
 			opts.sources = {
 				default = { "lsp", "snippets", "path", "buffer" },
 			}
@@ -171,6 +175,7 @@ return {
 					show_documentation = false,
 				},
 			}
+
 			return opts
 		end,
 		opts_extend = { "sources.default" },
