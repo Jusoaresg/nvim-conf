@@ -44,6 +44,16 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/williamboman/mason.nvim"
     },
+    "mini.clue": {
+      "rev": "f8a11789cf34a7bae396dc0f828d06cdb5066793",
+      "src": "https://github.com/nvim-mini/mini.clue",
+      "version": "'main'"
+    },
+    "mini.cmdline": {
+      "rev": "abae396a175779dcbfe1500231f9bb48cda557c1",
+      "src": "https://github.com/nvim-mini/mini.cmdline",
+      "version": "'main'"
+    },
     "mini.completion": {
       "rev": "09884c629cac1a8c999ffb6c57dc8424450aea5e",
       "src": "https://github.com/nvim-mini/mini.completion",
@@ -59,6 +69,11 @@
       "src": "https://github.com/nvim-mini/mini.extra",
       "version": "'main'"
     },
+    "mini.hipatterns": {
+      "rev": "a3ffba45e4119917b254c372df82e79f7d8c4aad",
+      "src": "https://github.com/nvim-mini/mini.hipatterns",
+      "version": "'main'"
+    },
     "mini.pick": {
       "rev": "6b7974543b17cf2e294993fc3d8545a342258232",
       "src": "https://github.com/nvim-mini/mini.pick",
@@ -67,6 +82,11 @@
     "mini.splitjoin": {
       "rev": "9fcd8856efb95a505090c3225726466494076127",
       "src": "https://github.com/nvim-mini/mini.splitjoin",
+      "version": "'main'"
+    },
+    "mini.statusline": {
+      "rev": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b",
+      "src": "https://github.com/nvim-mini/mini.statusline",
       "version": "'main'"
     },
     "nvim-dap": {

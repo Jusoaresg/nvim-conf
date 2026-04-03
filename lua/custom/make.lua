@@ -6,4 +6,12 @@ return {
 			vim.opt_local.makeprg = "cargo build"
 		end,
 	}),
+
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "go",
+		callback = function()
+			vim.opt_local.makeprg = "go build"
+			vim.opt_local.errorformat = "%f:%l:%c: %m"
+		end,
+	}),
 }
