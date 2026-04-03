@@ -1,40 +1,13 @@
 require("configs")
 require("keymaps")
+require("theme")
 
 require("custom.comments")
+require("custom.health")
+require("custom.ui2")
+require("custom.make")
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+require("plugin")
 
-require("lazy").setup({
-
-	require("kickstart.plugins.debug"),
-
-	{ import = "plugins" },
-	{ import = "themes" },
-}, {
-	ui = {
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
-	},
-
-	change_detection = { enabled = false, notify = false },
-	spec = ...,
-})
+-- Nvim packages
+vim.cmd("packadd nvim.undotree")

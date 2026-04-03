@@ -1,5 +1,11 @@
-return {
-	"folke/trouble.nvim",
+local M = {}
+
+function M.setup()
+	vim.pack.add({
+	"https://github.com/folke/trouble.nvim",
+	})
+
+	require("trouble").setup({
 	opts = {}, -- for default options, refer to the configuration section for custom setup.
 	cmd = "Trouble",
 	keys = {
@@ -33,5 +39,8 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
-	},
-}
+	}
+})
+end
+
+return M

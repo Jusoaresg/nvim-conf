@@ -1,3 +1,5 @@
 return {
-	{ 'wakatime/vim-wakatime', lazy = false }
+	vim.pack.add({
+		"https://github.com/wakatime/vim-wakatime",
+	}),
 }

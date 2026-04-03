@@ -1,50 +1,57 @@
-return {
-	{ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			{
-				"nvim-treesitter/nvim-treesitter-context",
-				config = function()
-					require("treesitter-context").setup({
-						enable = true, -- Habilita o plugin
-						max_lines = 5, -- Máximo de linhas de contexto
-						trim_scope = "outer", -- Ou "inner"
-						mode = "cursor", -- Pode ser "topline" também
-						separator = "-", -- Você pode definir um separador como "─"
-						zindex = 20,
-						on_attach = nil,
-					})
-				end,
-			},
-		},
-		build = ":TSUpdate",
-		branch = "master",
-		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = {
-				enable = true,
-				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-				--  If you are experiencing weird indenting issues, add the language to
-				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "ruby" },
-			},
-			indent = { enable = true, disable = { "ruby" } },
-		},
-		config = function(_, opts)
-			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+local M = {}
 
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
+function M.ensure_to_install()
+	local ensure_installed = {
+		"bash",
+		"c",
+		"html",
+		"lua",
+		"luadoc",
+		"markdown",
+		"vim",
+		"vimdoc",
+	}
 
-			-- There are additional nvim-treesitter modules that you can use to interact
-			-- with nvim-treesitter. You should go explore a few and see what interests you:
-			--
-			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-			require("treesitter-context").setup(opts)
-		end,
-	},
-}
+	local already_installed = require("nvim-treesitter.config").get_installed()
+	local parsers_to_install = vim.iter(ensure_installed)
+		:filter(function(parser)
+			return not vim.tbl_contains(already_installed, parser)
+		end)
+		:totable()
+	require("nvim-treesitter").install(parsers_to_install)
+end
+
+function M.setup()
+	vim.pack.add({
+		"https://github.com/nvim-treesitter/nvim-treesitter",
+		"https://github.com/nvim-treesitter/nvim-treesitter-context",
+	})
+
+	-- build = ":TSUpdate",
+	-- branch = "master",
+	require("nvim-treesitter").setup({
+		-- Autoinstall languages that are not installed
+		auto_install = true,
+		highlight = {
+			enable = true,
+			-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
+			--  If you are experiencing weird indenting issues, add the language to
+			--  the list of additional_vim_regex_highlighting and disabled languages for indent.
+			additional_vim_regex_highlighting = { "ruby" },
+		},
+		indent = { enable = true, disable = { "ruby" } },
+	})
+	M.ensure_to_install()
+
+	require("treesitter-context").setup({
+		enable = true, -- Habilita o plugin
+		max_lines = 5, -- Máximo de linhas de contexto
+		trim_scope = "outer", -- Ou "inner"
+		mode = "cursor", -- Pode ser "topline" também
+		separator = "-", -- Você pode definir um separador como "─"
+		zindex = 20,
+		on_attach = nil,
+	})
+end
+
+return M

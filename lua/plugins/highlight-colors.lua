@@ -1,7 +1,6 @@
 return {
-	"brenoprata10/nvim-highlight-colors",
-	config = function()
-		-- NOTE: Color hithlight in hex
-		require("nvim-highlight-colors").setup({})
-	end,
+	vim.pack.add({
+		"https://github.com/brenoprata10/nvim-highlight-colors",
+	}),
+	require("nvim-highlight-colors").setup({}),
 }
