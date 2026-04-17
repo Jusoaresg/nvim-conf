@@ -168,6 +168,7 @@ function M.setup()
 			map("K", vim.lsp.buf.hover, "Hover Documentation")
 
 			map("<leader>ci", vim.lsp.buf.implementation, "[C]ode [I]mplementation")
+			map("<leader>cr", vim.lsp.buf.references, "[C]ode [R]eferences")
 
 			map("<leader>cD", vim.lsp.buf.declaration, "[C]ode [D]eclaration")
 			map("<leader>cd", vim.lsp.buf.definition, "[C]ode [D]efinition")
