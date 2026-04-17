@@ -30,6 +30,10 @@ function M.setup()
 			src = "https://github.com/nvim-mini/mini.hipatterns",
 			version = "main",
 		},
+		{
+			src = "https://github.com/nvim-mini/mini.notify",
+			version = "main",
+		},
 	})
 
 	require("mini.splitjoin").setup({
@@ -106,6 +110,12 @@ function M.setup()
 			todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 			note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 			hex_color = hipatterns.gen_highlighter.hex_color(),
+		},
+	})
+
+	require("mini.notify").setup({
+		lsp_progress = {
+			enable = true,
 		},
 	})
 end
