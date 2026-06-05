@@ -1,10 +1,10 @@
 return {
-	vim.pack.add({
-		"https://github.com/nvim-lualine/lualine.nvim",
-		"https://github.com/archibate/lualine-time",
-	}),
+	"nvim-lualine/lualine.nvim",
+	dependencies = {
+		{ "archibate/lualine-time", opts = {} },
+	},
+	opts = {
 
-	require("lualine").setup({
 		options = {
 			icons_enabled = true,
 			theme = require("lualine_theme").theme(),
@@ -44,5 +44,5 @@ return {
 		winbar = {},
 		inactive_winbar = {},
 		extensions = {},
-	}),
+	},
 }

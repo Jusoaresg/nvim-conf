@@ -4,6 +4,46 @@
       "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "UNL.nvim": {
+      "rev": "826ca3256b2a5ba15122765f1fedd66961ff21d0",
+      "src": "https://github.com/taku25/UNL.nvim"
+    },
+    "USX.nvim": {
+      "rev": "c976fc0eb419b837dd7a1d3f687d18ee1a5870a0",
+      "src": "https://github.com/taku25/USX.nvim"
+    },
+    "UnrealDev.nvim": {
+      "rev": "4e4665e5b8319cceaf7ad7f11d58481bcbf4c236",
+      "src": "https://github.com/taku25/UnrealDev.nvim"
+    },
+    "blink-cmp-unreal": {
+      "rev": "171e11d1886e0d57e89446b98dab8b820f776160",
+      "src": "https://github.com/taku25/blink-cmp-unreal"
+    },
+    "blink.cmp": {
+      "rev": "c573a15a62bd0bfd4006ee0849b24f5404395500",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "clangd_extensions.nvim": {
+      "rev": "78c2ecd659d54972be17aa6ba2deac3c53223b80",
+      "src": "https://github.com/p00f/clangd_extensions.nvim"
+    },
+    "cmp-buffer": {
+      "rev": "b74fab3656eea9de20a9b8116afa3cfc4ec09657",
+      "src": "https://github.com/hrsh7th/cmp-buffer"
+    },
+    "cmp-nvim-lsp": {
+      "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
+    },
+    "cmp-nvim-lua": {
+      "rev": "e3a22cb071eb9d6508a156306b102c45cd2d573d",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lua"
+    },
+    "cmp-path": {
+      "rev": "c642487086dbd9a93160e1679a1327be111cbc25",
+      "src": "https://github.com/hrsh7th/cmp-path"
+    },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -19,6 +59,14 @@
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "gruvbox-material": {
+      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
+      "src": "https://github.com/sainnhe/gruvbox-material.git"
+    },
+    "gruvbox.nvim": {
+      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim.git"
     },
     "lualine-time": {
       "rev": "8838875e2e787293bb905d23dbb91ef4bde188ea",
@@ -69,9 +117,18 @@
       "src": "https://github.com/nvim-mini/mini.extra",
       "version": "'main'"
     },
+    "mini.files": {
+      "rev": "ced297546b8fdb8e215d416d4753a735514a2fe0",
+      "src": "https://github.com/nvim-mini/mini.files"
+    },
     "mini.hipatterns": {
       "rev": "a3ffba45e4119917b254c372df82e79f7d8c4aad",
       "src": "https://github.com/nvim-mini/mini.hipatterns",
+      "version": "'main'"
+    },
+    "mini.notify": {
+      "rev": "32d3544b9368c76c562f22027ab25b750647fdf1",
+      "src": "https://github.com/nvim-mini/mini.notify",
       "version": "'main'"
     },
     "mini.pick": {
@@ -88,6 +145,14 @@
       "rev": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b",
       "src": "https://github.com/nvim-mini/mini.statusline",
       "version": "'main'"
+    },
+    "neovim": {
+      "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
+      "src": "https://github.com/rose-pine/neovim.git"
+    },
+    "nvim-cmp": {
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-dap": {
       "rev": "4f5deb110d9ff8994d96c21df95e2271d11214f9",

@@ -1,9 +1,6 @@
 return {
-	vim.pack.add({
-		"https://github.com/stevearc/conform.nvim",
-	}),
-
-	require("conform").setup({
+	"stevearc/conform.nvim",
+	opts = {
 		notify_on_error = true,
 		format_on_save = function(bufnr)
 			local disable_filetypes = {
@@ -32,5 +29,5 @@ return {
 				desc = "[B]uffer [F]ormat",
 			},
 		},
-	}),
+	},
 }

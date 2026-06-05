@@ -1,13 +1,6 @@
-local M = {}
-
-function M.setup()
-	vim.pack.add({
-		{
-			src = "https://github.com/stevearc/oil.nvim",
-		},
-	})
-
-	require("oil").setup({
+return {
+	"stevearc/oil.nvim",
+	opts = {
 		-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
 		-- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
 		default_file_explorer = true,
@@ -24,12 +17,12 @@ function M.setup()
 			-- Show files and directories that start with "."
 			show_hidden = true,
 		},
+	},
+	config = function(_, opts)
+		vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" })
+		vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" })
+		vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "[O]il File Manager" })
 
-		-- NOTE: VIM Oil config (File explorer)
-		vim.api.nvim_create_user_command("Ex", "Oil <args>", { nargs = "?", complete = "dir" }),
-		vim.api.nvim_create_user_command("E", "Oil <args>", { nargs = "?", complete = "dir" }),
-		vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "[O]il File Manager" }),
-	})
-end
-
-return M
+		require("oil").setup(opts)
+	end,
+}

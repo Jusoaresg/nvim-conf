@@ -1,3 +1,4 @@
 return {
-	vim.pack.add({ "https://github.com/tpope/vim-sleuth" }), -- Detect tabstop and shiftwidth automatically
+	-- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",
 }
