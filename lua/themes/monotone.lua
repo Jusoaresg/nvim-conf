@@ -8,10 +8,9 @@ local function transparency()
 end
 
 return {
-	vim.pack.add({
-		"https://github.com/Lokaltog/vim-monotone",
-	}),
-	vim.cmd("colorscheme monotone"),
-
-	transparency()
+	"Lokaltog/vim-monotone",
+	config = function()
+		vim.cmd("colorscheme monotone")
+		transparency()
+	end,
 }

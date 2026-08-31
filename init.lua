@@ -1,13 +1,10 @@
 require("configs")
 require("keymaps")
-require("theme")
 
 require("custom.comments")
 require("custom.health")
 require("custom.ui2")
 require("custom.make")
-
---require("plugin")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,6 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
+		{ import = "themes" },
 	},
 	-- automatically check for plugin updates
 	checker = { enabled = true },
