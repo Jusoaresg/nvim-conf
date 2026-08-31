@@ -105,8 +105,7 @@ return {
 				},
 			},
 		}
-		local capabilities = require("mini.completion").get_lsp_capabilities()
-		-- local capabilities = require("blink.cmp").get_lsp_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		vim.lsp.config("*", { capabilities = capabilities })
 
 		-- INFO: If for some reason want the builtin capabilities way
