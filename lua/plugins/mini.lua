@@ -14,28 +14,6 @@ return {
 		end,
 	},
 	{
-		"nvim-mini/mini.pick",
-		opts = {
-			options = {
-				use_cache = true,
-			},
-		},
-		config = function(_, opts)
-			local pick = require("mini.pick").setup(opts)
-
-			vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { fg = "#121111", bg = "#d2cfcf" })
-			vim.keymap.set("n", "<leader>sf", "<cmd>Pick files<CR>", { desc = "Search Files" })
-			vim.keymap.set("n", "<leader>sw", "<cmd>Pick grep_live<CR>", { desc = "Search Word Live" })
-			vim.keymap.set("n", "<leader>sW", "<cmd>Pick grep<CR>", { desc = "Search Word" })
-			vim.keymap.set("n", "<leader>sr", "<cmd>Pick resume<CR>", { desc = "Search Word" })
-			vim.keymap.set("n", "<leader><leader>", "<cmd>Pick buffers<CR>", { desc = "Search Buffers" })
-		end,
-	},
-	{
-		"nvim-mini/mini.completion",
-		opts = {},
-	},
-	{
 		"nvim-mini/mini.diff",
 		config = function(_, opts)
 			require("mini.diff").setup(opts)
@@ -84,24 +62,6 @@ return {
 	},
 	{
 		"nvim-mini/mini.cmdline",
-	},
-	{
-		"nvim-mini/mini.hipatterns",
-		opts = {
-
-			highlighters = {
-				fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-				hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-				todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-				note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-			},
-		},
-		config = function(_, opts)
-			local hipatterns = require("mini.hipatterns")
-			opts.highlighters.hex_color = hipatterns.gen_highlighter.hex_color()
-
-			hipatterns.setup(opts)
-		end,
 	},
 	{
 		"nvim-mini/mini.notify",
